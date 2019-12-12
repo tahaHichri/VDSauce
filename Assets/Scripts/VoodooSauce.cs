@@ -16,7 +16,7 @@
  *
  * Please fill out the method implementations below 
  * Feel free to create additional classes to help with your implementation 
- * Please do not spend more than 2 hours on the code implementation portion of this exercise
+ * Please do not spend more than 2.5 hours on the code implementation portion of this exercise
  * Please do not modify the code in the 3rdParty folder
  * Make sure to read this entire file before starting to code.  We include important instructions on how to use the TopAds and TopAnalytics SDKs
  * 
@@ -47,20 +47,31 @@ public static class VoodooSauce{
 		// TopAds methods must be called with a unique "string" ad unit id 
 		// For your test app that id is "f4280fh0318rf0h2" 
 		// However, when releasing the SDK to other studios, their ad unit id will be different 
-		// Please find a non code way to allow studios to provide their ad unit id to your VoodooSauce SDK 
+		// Please find a flexible way to allow studios to provide their ad unit id to your VoodooSauce SDK 
 		
 		
 		// Before an ad is available to display, you must call TopAds.RequestAd 
+		// You must call RequestAd each time before an ad is ready to display 
+
+		// RequestAd will make a "fake" request for an ad that will take 0 to 10 seconds to complete
+		// Afterwards, either the OnAdLoadedEvent or OnAdFailedEvent will be invoked 
+		// Please implement an autorequest system that ensures an ad is always ready to be displayed
+		// Keep in mind that RequestAd can fail multiple times in a row 
+
+		// If an ad is loaded correctly, clicking on the "Show Ad" button within Unity-VoodooSauceTestApp 
+		// should display a fake ad popup that you can close. 
 		
 
-		// Track in TopAnalytics when an ad is displayed 
+		// Track in TopAnalytics when an ad is displayed.  Hint: TopAds.OnAdShownEvent 
 	}
 
 	public static void SetAdDisplayConditions(int secondsBetweenAds, int gamesBetweenAds)
 	{
-		// Add a system that shows ads based on satisfying EITHER conditions provided 
-		// secondsBetweenAds: only show an ad if the previous ad was shown more than "secondBetweenAds" ago 
-		// gamesBetweenAds: only show an ad if "gamesBetweenAds" amount of games was played since the previous ad 
+		// Sometimes studios call "ShowAd" too often and bombard players with ads 
+		// Add a system that prevents the "ShowAd" method from showing an available ad 
+		// Unless EITHER condition provided is true: 
+		// 1) secondsBetweenAds: only show an ad if the previous ad was shown more than "secondBetweenAds" ago 
+		// 2) gamesBetweenAds: only show an ad if "gamesBetweenAds" amount of games was played since the previous ad 
 	}
 	
 	
