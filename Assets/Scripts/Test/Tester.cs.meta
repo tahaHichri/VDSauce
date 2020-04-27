@@ -1,3 +1,16 @@
-﻿fileFormatVersion: 2
+fileFormatVersion: 2
 guid: bbbf8b3b3bfa48e7ae5d3898e6eacfe3
-timeCreated: 1575986468
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - topAdsPrefab: {fileID: 1493028414771136, guid: 4054107e618524df191b01917322c31f,
+      type: 3}
+  - showAdButton: {instanceID: 0}
+  - startGameButton: {instanceID: 0}
+  - endGameButton: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
